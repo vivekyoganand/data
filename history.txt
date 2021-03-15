@@ -1,0 +1,425 @@
+    1  exit
+    2  ssh lab@utility
+    3  sudo shutdown -h now
+    4  ls
+    5  ssh lab@utility
+    6  ls
+    7  sudo su -
+    8  exit
+    9  nslookup workstation 
+   10  ifconfig |less
+   11  hostname -s
+   12  hostname -d
+   13  hostname -f
+   14  ssh bastion -l root
+   15  ssh utility -l root
+   16  ssh classroom -l root 
+   17  nslookup classroom
+   18  nslookup google.com
+   19  traceroute google.com
+   20  vim /etc/containers/registries.conf 
+   21  sudo su - 
+   22  ssh utility -l root 
+   23  mkdir work
+   24  cd work/
+   25  pwd
+   26  ll
+   27  vim myfile.txt
+   28  source myfile.txt 
+   29  cat myfile.txt 
+   30  oc login -u kubeadmin -p $passwd $api_url
+   31  oc get nodes 
+   32  oc debug node/master01
+   33  oc new-app --name paypal httpd
+   34  oc get  pods
+   35  oc delete pod paypal-cdf74f447-stskm
+   36  oc get  pods
+   37  oc get deployment 
+   38  oc get  svc 
+   39  oc get  pods
+   40  oc get  svc 
+   41  oc get deployment 
+   42  oc get deployment -o yaml > paypal_deployment.yaml 
+   43  vim paypal_deployment.yaml 
+   44  oc get  pods
+   45  oc replace -f paypal_deployment.yaml 
+   46  oc get pods
+   47  vim paypal_deployment.yaml 
+   48  oc replace -f paypal_deployment.yaml 
+   49  vim paypal_deployment.yaml 
+   50  oc get deployment -o yaml > paypal_deployment.yaml 
+   51  vim paypal_deployment.yaml 
+   52  oc replace -f paypal_deployment.yaml 
+   53  oc get  pods
+   54  oc login -u kubeadmin -p $passwd $api_url
+   55  echo $api_ual
+   56  echo $api_url
+   57  oc show-url
+   58  oc whoami 
+   59  oc whoami --show-server 
+   60  cat /etc/redhat-release 
+   61  oc get  nodes
+   62  oc debug node/master03
+   63  oc get  pods
+   64  oc get  pods -o wide 
+   65  oc describe svc 
+   66  oc describe svc paypal 
+   67  oc get  pods -o wide 
+   68  oc delete pod paypal-cdf74f447-qkng5
+   69  oc get  pods -o wide 
+   70  nslookup suresh.apps.lab.example.com
+   71  cat /usr/local/etc/ocp4.defaults 
+   72  nslookup suresh.apps.ocp4.example.com
+   73  nslookup surslkjdfhksjdfhkjsdfhkjsdhfkjsdesh.apps.ocp4.example.com
+   74  oc get  pods
+   75  #oc expose service paypal --hostname suresh
+   76  oc get svc 
+   77  oc get routes.route.openshift.io 
+   78  oc expose service paypal --hostname btm.apps.ocp4.example.com
+   79  oc get route 
+   80  oc get pods
+   81  oc rsh paypal-cdf74f447-2j82r
+   82  vim Dockerfile
+   83  vim index.html
+   84  vim Dockerfile
+   85  podman images
+   86  podman  build -t qcs-btm/apache .
+   87  podman images
+   88  oc new-app --name gmail --docker-image quay.io/cprakash2118/qcs-unit4-sa 
+   89  podman login quay.io 
+   90  oc new-app --name gmail --docker-image quay.io/cprakash2118/qcs-unit4-sa 
+   91  oc new-app --name gmail --docker-image quay.io/cprakash2118/ex280-qcs-updated
+   92  oc new-project new
+   93  oc new-app --name gmail --docker-image quay.io/cprakash2118/ex280-qcs-updated
+   94  podman images
+   95  podman tag localhost/qcs-btm/apache quay.io/cprakash2118/demo
+   96  podman images
+   97  podman push quay.io/cprakash2118/demo
+   98  podman login quay.io 
+   99  podman push quay.io/cprakash2118/demo
+  100  oc get  pods
+  101  oc new-app --name gmail --docker-image quay.io/cprakash2118/demo
+  102  oc get  pods
+  103  oc create sa gmail-sa 
+  104  oc adm policy add-scc-to-user anyuid 0z gmail-sa
+  105  oc set serviceaccount deployment/gmail gmail-sa
+  106  oc get  pods
+  107  oc logs gmail-84579d6bd5-gdh5d
+  108  oc get  pods
+  109  oc set serviceaccount --help |less
+  110  oc set serviceaccount deployment/gmail gmail-sa
+  111  oc get  deployment 
+  112  oc get  pods
+  113  oc logs  gmail-84579d6bd5-gdh5d
+  114  oc get  deployment 
+  115  podman images
+  116  podman run -d --name test01 -p 8080:80 localhost/qcs-btm/apache
+  117  podman ps
+  118  podman ps -a
+  119  vim Dockerfile 
+  120  podman  build -t qcs-btm/apache-02 .
+  121  podman images
+  122  podman run -d --name test02 -p 8081:80 localhost/qcs-btm/apache-02
+  123  podman ps
+  124  podman run -d --name test03 -p 8082:80 localhost/qcs-btm/apache-02
+  125  podman ps
+  126  podman exec -it test02 bash 
+  127  podman images
+  128  podman tag localhost/qcs-btm/apache-02 quay.io/cprakash2118/demo-02
+  129  podman images
+  130  podman push quay.io/cprakash2118/demo-02
+  131  podman login quay.io 
+  132  podman push quay.io/cprakash2118/demo-02
+  133  oc new-app --name youtube --docker-image quay.io/cprakash2118/demo-02
+  134  oc get  pods
+  135  oc set serviceaccount deployment/youtube gmail-sa
+  136  oc get  pods
+  137  oc describe youtube-bd9c6bb54-8lnwf
+  138  oc describe pod  youtube-bd9c6bb54-8lnwf
+  139  oc logs youtube-bd9c6bb54-8lnwf
+  140  oc adm policy add-scc-to-user anyuid -z gmail-sa
+  141  oc get  pods
+  142  oc set serviceaccount deployment/youtube gmail-sa
+  143  oc get  pods
+  144  oc set serviceaccount deployment/youtube gmail-sa
+  145  oc get  pods
+  146  oc adm policy add-scc-to-user --help |less
+  147  oc create sa test
+  148  oc adm policy add-scc-to-user anyuid -z test
+  149  oc set serviceaccount deployment/youtube test
+  150  oc get  pods
+  151  oc get  deployment youtube -o yaml > you.yaml 
+  152  vim you.yaml 
+  153  oc replace -f you.yaml 
+  154  oc get  pods
+  155  oc expose service youtube --hostname youtube.ocp4.example.com
+  156  oc get route 
+  157  oc delete routes.route.openshift.io youtube 
+  158  oc expose service youtube --hostname youtube.apps.ocp4.example.com
+  159  for x in `cat`; do oc delete pod $x; done
+  160  oc whoami 
+  161  oc get  pods
+  162  for x in `cat`; do oc delete pod $x; done
+  163  oc get  pods
+  164  oc get nodes 
+  165  oc debug node/master01
+  166  sudo su - 
+  167  mkdir NEW
+  168  cd NEW/
+  169  ll
+  170  pwd
+  171  ssh utility -l root
+  172  ll
+  173  vim kubeconfig 
+  174  env | grep KUBECONFIG 
+  175  export KUBECONFIG=/home/student/NEW/kubeconfig 
+  176  env | grep KUBECONFIG 
+  177  oc get  nodes 
+  178  oc whoami 
+  179  oc whoami -t 
+  180  unset KUBECONFIG 
+  181  env | grep KUBECONFIG 
+  182  oc whoami 
+  183  oc get nodes 
+  184  unset KUBECONFIG 
+  185  oc get nodes 
+  186  cd
+  187  cd -
+  188  oc get nodes 
+  189  oc whoami 
+  190  oc whoami -t
+  191  oc logout 
+  192  export KUBECONFIG=/home/student/NEW/kubeconfig 
+  193  env | grep KUBECONFIG 
+  194  oc whoami 
+  195  oc whoami -t 
+  196  oc get nodes
+  197  unset KUBECONFIG 
+  198  env | grep KUBECONFIG 
+  199  oc get nodes
+  200  oc whoami 
+  201  ll
+  202  vim ../work/myfile.txt 
+  203  cp -rpv ../work/myfile.txt .
+  204  ll
+  205  source myfile.txt 
+  206  cat myfile.txt 
+  207  oc whoami 
+  208  oc login -u kubeadmin -p $passwd $api_url
+  209  oc whoami 
+  210  oc whoami -t 
+  211  oc get  nodes 
+  212  ll
+  213  htpasswd --help 
+  214  htpasswd -c -b -B file_name chandra redhat
+  215  htpasswd -c -b -B file_name suresh redhat
+  216  ll
+  217  cat myfile.txt 
+  218  cat file_name 
+  219  htpasswd  -b -B file_name chandra redhat
+  220  cat file_name 
+  221  oc create secret generic --help |less
+  222  oc create secret generic gmail-team --from-file htpasswd=file_name -n openshift-config 
+  223  oc get secrets gmail-team -n openshift-config 
+  224  oc get secrets gmail-team -n openshift-config -o yaml 
+  225  ll
+  226  rm -rf file_name 
+  227  oc get oauth/cluster -o yaml > oauth.yaml 
+  228  vim oauth.yaml 
+  229  oc replace -f oauth.yaml 
+  230  oc login -u chandra -p redhat $api_url
+  231  oc whoami 
+  232  ll
+  233  mkdir new 
+  234  cd  new/
+  235  ll
+  236  vim file
+  237  oc login -u chandra  $api_url
+  238  oc logout 
+  239  oc login -u chandra  $api_url
+  240  oc get  secrets gmail-team -n openshift-config 
+  241  oc whoami 
+  242  oc login -u kubeadmin -p $passwd $api_url
+  243  oc get  secrets gmail-team -n openshift-config 
+  244  oc get  secrets gmail-team -n openshift-config -o yaml 
+  245  ll
+  246  cat file 
+  247  rm -rf * 
+  248  oc extract --help |less
+  249  #oc extract configmap/nginx --to=-
+  250  oc extract secret/gmail-team --to=. -n openshift-config 
+  251  ll
+  252  cat htpasswd 
+  253  htpasswd -B -b htpasswd suresh alksdjaskldjaskldjalksjdklasjdklasj
+  254  oc set data --help |less
+  255  oc set data secret/gmail-team --from-file htpasswd=htpasswd -n openshift-config 
+  256  oc login -u suresh -p alksdjaskldjaskldjalksjdklasjdklasj 
+  257  oc whoami 
+  258  ll
+  259  oc whoami 
+  260  oc login -u kubeadmin -p $passwd $api_url
+  261  ll
+  262  cd work/
+  263  ll
+  264  source myfile.txt 
+  265  oc login -u kubeadmin -p $passwd $api_url
+  266  oc whoami 
+  267  oc get users 
+  268  oc whoami 
+  269  oc new-project project1
+  270  ll
+  271  cd ..
+  272  cd NEW/
+  273  ll
+  274  cd new/
+  275  ll
+  276  rm -rf * 
+  277  oc extract secret/gmail-team --to=. -n openshift-config 
+  278  cat htpasswd 
+  279  for x in {1..30}; do if [ -f httpasswd ]; then htpasswd -B -b htpasswd user$x redhat; else htpasswd -c -B -b htpasswd user$x redhat; fi; done
+  280  for x in {1..30}; do if [ -f htpasswd ]; then htpasswd -B -b htpasswd user$x redhat; else htpasswd -c -B -b htpasswd user$x redhat; fi; done
+  281  ll
+  282  cat htpasswd 
+  283  cat htpasswd  |less
+  284  oc extract secret/gmail-team --to=. -n openshift-config 
+  285  oc extract secret/gmail-team --to=. -n openshift-config --confirm
+  286  cat htpasswd 
+  287  for x in {1..30}; do if [ -f htpasswd ]; then htpasswd -B -b htpasswd user$x redhat; else htpasswd -c -B -b htpasswd user$x redhat; fi; done
+  288  cat htpasswd |less
+  289  oc set data secret/gmail-team --from-file htpasswd=htpasswd -n openshift-config 
+  290  for x in {1..30}; do oc login -u user$x -p redhat; done
+  291  htpasswd -B -p htpasswd user30
+  292  oc set data secret/gmail-team --from-file htpasswd=htpasswd -n openshift-config 
+  293  oc login -u kubeadmin -p $passwd $api_url
+  294  oc set data secret/gmail-team --from-file htpasswd=htpasswd -n openshift-config 
+  295  oc login -u user30 -p a
+  296  oc whoami 
+  297  oc login -u user30 -p a
+  298  oc login -u user30 -p redhat
+  299  oc login -u user29 -p redhat
+  300  oc login -u kubeadmin -p $passwd $api_url
+  301  oc login -u user30 -p redhat
+  302  oc login -u user30 -p a
+  303  htpasswd -B htpasswd user30
+  304  oc set data secret/gmail-team --from-file htpasswd=htpasswd -n openshift-config 
+  305  oc login -u user30 -p a
+  306  oc whoami
+  307  oc login -u kubeadmin -p $passwd $api_url
+  308  oc get nodes
+  309  oc logs node master01
+  310  oc get  events
+  311  oc get  logs
+  312  oc logs --help |less
+  313  oc logs master01
+  314  oc debug node/master01
+  315  oc whoami
+  316  oc adm node-logs -u kubelet master01 
+  317  oc adm node-logs -u crio master01 | grep user30
+  318  oc adm node-logs -u crio master01 | grep -i user30
+  319  oc adm node-logs  master01 | grep -i user30
+  320  oc get events --help |less
+  321  oc adm groups new unixadm 
+  322  oc adm groups new devops
+  323  oc adm groups new app1
+  324  oc adm groups new mgmt
+  325  oc adm groups add-users --help |less
+  326  oc adm groups add-users unixadm user1 user2 user3 user4 user5 user6 user7 user8 user9 user10 
+  327  oc adm groups add-users devops user11 user12 user13 user14 user15 user16 user17 user18 user19 user20 
+  328  oc get  users 
+  329  oc get  groups.user.openshift.io 
+  330  oc get  groups
+  331  oc adm policy add-cluster-role-to-group cluster-admin devops
+  332  oc login -uuser 15 -p redhat $api_url
+  333  oc login -u user15 -p redhat $api_url
+  334  oc whoami 
+  335  oc get  nodes
+  336  oc login -u user21 -p redhat $api_url
+  337  oc whoami 
+  338  oc get  nodes
+  339  nslookup google.com
+  340  traceroute google.com
+  341  ll
+  342  cd work/
+  343  pwd
+  344  ll
+  345  vim Dockerfile 
+  346  podman pull registry.access.redhat.com/ubi7/ubi
+  347  podman images
+  348  ll
+  349  vim Dockerfile 
+  350  podman 5 Dockerfile
+  351  podman 5 podman 
+  352  vim Dockerfile 
+  353  ll
+  354  mkdir new 
+  355  cp -rpv Dockerfile new/
+  356  cd new/
+  357  ll
+  358  vim Dockerfile 
+  359  vim index.html
+  360  ll
+  361  vim Dockerfile 
+  362  mkdir -p /root/test/fedora/linux
+  363  mkdir -p root/test/fedora/linux
+  364  tree root/
+  365  vim Dockerfile 
+  366  ll
+  367  vim Dockerfile 
+  368  podman build -t chandra/demo01 .
+  369  vim Dockerfile 
+  370  podman images
+  371  podman images -q 
+  372  podman rmi -f `podman images -q` 
+  373  podman images
+  374  podman rmi c733cefbd67a
+  375  podman rmi -f  c733cefbd67a
+  376  podman rmi -f 0355cd652bd1
+  377  podman images
+  378  ll
+  379  podman build -t chandra/demo01 .
+  380  echo $?
+  381  podman images
+  382  podman tag localhost/chandra/demo01  quay.io/cprakash2118/chandra/demo01
+  383  podman images
+  384  podman push quay.io/cprakash2118/chandra/demo01
+  385  podman quay.io
+  386  podman login quay.io
+  387  podman push quay.io/cprakash2118/chandra/demo01
+  388  podman login quay.io
+  389  podman push quay.io/cprakash2118/chandra/demo01
+  390  podman login quay.io
+  391  podman push quay.io/cprakash2118/chandra/demo01
+  392  podman images
+  393  podman tag quay.io/cprakash2118/chandra/demo01 quay.io/cprakash2118/chandra-demo01
+  394  podman images
+  395  podman push quay.io/cprakash2118/chandra-demo01
+  396  podman login quay.io
+  397  podman push quay.io/cprakash2118/chandra-demo01
+  398  podman rmi -f `podman images -qa`
+  399  podman images
+  400  podman pull quay.io/cprakash2118/chandra-demo01
+  401  podman images
+  402  podman run -d --name paypal -p 8080:80 feab0ed0100e
+  403  podman ps 
+  404  date ; podman run -d --name paypal-02 -p 8081:80 feab0ed0100e ; date ; curl http://workstation.lab.example.com:8081 ; date 
+  405  date ; podman run -d --name paypal-03 -p 8082:80 feab0ed0100e ; date; sleep1 ; curl http://workstation.lab.example.com:8082 ; date 
+  406  date ; podman run -d --name paypal-04 -p 8083:80 feab0ed0100e ; date; sleep 1 ; curl http://workstation.lab.example.com:8083 ; date 
+  407  podman images
+  408  podman ps
+  409  podman exec -it paypal-02 bash 
+  410  for x in {4..20}; do podman run -d --name paypal-$x -p 80$x:80 feab0ed0100e ; done
+  411  for x in {04..09}; do podman run -d --name paypal-$x -p 80$x:80 feab0ed0100e ; done
+  412  podman ps 
+  413  vim Dockerfile 
+  414  ls -l /etc/containers/registries.conf 
+  415  vim /etc/containers/registries.conf
+  416  sudo su - 
+  417  podman ps 
+  418  podman exec -it paypal-02 bash 
+  419  rpm -qa | grep openssh
+  420  podman exec -it paypal-02 bash 
+  421  nslookup workstation
+  422  podman exec -it paypal-02 bash 
+  423  id tom 
+  424  podman exec -it paypal-02 bash 
+  425  history > /home/student/history.txt
