@@ -1,0 +1,102 @@
+    1  exit
+    2  podman images
+    3  podman ps -a
+    4  podman ps 
+    5  podman pull registry.access.redhat.com/ubi7/ubi
+    6  podman images
+    7  podman pull registry.access.redhat.com/ubi7/ubi:7.3
+    8  podman pull registry.access.redhat.com/ubi7/ubi:7.4
+    9  podman pull registry.access.redhat.com/ubi7/ubi:7.5
+   10  podman pull registry.access.redhat.com/ubi7/ubi:7.6
+   11  podman images
+   12  podman save -o rhel-podman-image7.6.tar registry.access.redhat.com/ubi7/ubi
+   13  ls -lrth 
+   14  rm -rf rhel-podman-image7.6.tar
+   15  podman save -o rhel-podman-image7.6.tar registry.access.redhat.com/ubi7/ubi:7.6 
+   16  ls -lrth 
+   17  podman images
+   18  podman rmi registry.access.redhat.com/ubi7/ubi
+   19  podman rmi 247ee58855fd
+   20  podman images
+   21  ls -l 
+   22  podman load -i rhel-podman-image7.6.tar
+   23  podman images
+   24  podman --help | grep "\-o"
+   25  podman save --help | grep "\-o"
+   26  podman  images
+   27  podman  tag registry.access.redhat.com/ubi7/ubi:7.6 quay.io/cprakash2118/btm-image-rhel7.6 
+   28  podman images
+   29  podman login quay.io 
+   30  podman push quay.io/cprakash2118/btm-image-rhel7.6
+   31  podman login quay.io 
+   32  podman push quay.io/cprakash2118/btm-image-rhel7.6
+   33  mkdir work 
+   34  cd work/
+   35  pwd
+   36  ll
+   37  vim Dockerfile
+   38  podman build -t myimage-01 .
+   39  podman images
+   40  podman run -d --name test-01 -p 8080:80 localhost/myimage-01
+   41  podman ps 
+   42  podman exec -it test-01 bash 
+   43  podman commit --help |less
+   44  podman images
+   45  podman ps 
+   46  podman commit fb4c019b2add new-server01 
+   47  podman images
+   48  podman ps 
+   49  podman rm fb4c019b2add
+   50  podman rm -f fb4c019b2add
+   51  podman ps 
+   52  podman images
+   53  podman run -d --name test-01 -p 8080:80 1d6147f11d21
+   54  podman ps 
+   55  podman ps -a
+   56  podman logs test-01
+   57  podman run -d --name test-02 -p 8081:80 1d6147f11d21
+   58  podman ps
+   59  podman ps -a
+   60  podman logs 8e90f258fc4c
+   61  podman commit --help |less
+   62  podman images
+   63  podman run -d --name test-03 -p 8082:80 localhost/new-server01
+   64  podman images
+   65  podman ps
+   66  podman ps -a
+   67  podman images
+   68  podman run -d --name server-01 -p 8090:80 localhost/myimage-01
+   69  podman ps
+   70  podman exec -it server-01 bash 
+   71  podman ps
+   72  podman stop server-01 
+   73  podman ps -a
+   74  podman commit do180-01 0f6da4f14009
+   75  podman commit 0f6da4f14009 do180-01
+   76  podman images
+   77* 
+   78  podman run -d --name server-02 -p 8091:80 localhost/do180-01
+   79  podman ps
+   80  podman start server-01 
+   81  podman ps
+   82  podman ps -a
+   83  podman logs test-03
+   84  podman ps 
+   85  podman exec -it server-01 bash 
+   86  su - 
+   87  podman images
+   88  su - 
+   89  podman images
+   90  podman ps 
+   91  podman exec -it server-01 bash 
+   92  podman exec -it server-02 bash 
+   93  su -
+   94  su - 
+   95  cd /proc/
+   96  ls
+   97  cd 443/
+   98  ls 
+   99  podman --help |less
+  100  podman import --help |less
+  101  cd
+  102  history > history-02.txt
